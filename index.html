@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RyskDigital | Agência de Produtos Digitais</title>
+  <meta name="description" content="RyskDigital - Agência de produtos digitais. Criação de sites profissionais, materiais para Instagram e infoprodutos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-light: #111118;
+      --bg-card: #16161f;
+      --accent: #6c5ce7;
+      --accent-light: #a29bfe;
+      --accent-glow: rgba(108,92,231,0.25);
+      --white: #f0f0f5;
+      --gray: #8888a0;
+      --gray-dark: #4a4a5e;
+      --border: rgba(255,255,255,0.06);
+      --font: 'Space Grotesk', -apple-system, sans-serif;
+      --font-display: 'Sora', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-light); }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      background: rgba(10,10,15,0.8); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--white); }
+    .logo span { color: var(--accent); }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-size: 0.82rem; color: var(--gray); transition: color 0.25s; font-weight: 400; }
+    nav a:hover { color: var(--white); }
+    .btn-accent {
+      background: var(--accent); color: var(--white); padding: 10px 24px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s;
+      font-family: var(--font);
+    }
+    .btn-accent:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 70% 40%, rgba(108,92,231,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(108,92,231,0.06) 0%, transparent 50%),
+        var(--bg);
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 140px 24px 80px; width: 100%; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(108,92,231,0.1); border: 1px solid rgba(108,92,231,0.2);
+      padding: 8px 16px; border-radius: 40px; margin-bottom: 32px;
+    }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .hero-badge span { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; color: var(--accent-light); text-transform: uppercase; }
+    .hero h1 {
+      font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 600; line-height: 1.05; max-width: 800px; margin-top: 16px;
+    }
+    .hero h1 .highlight { color: var(--accent); }
+    .hero-sub {
+      margin-top: 24px; max-width: 500px; font-size: 1.05rem;
+      line-height: 1.7; color: var(--gray); font-weight: 300;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: var(--white); padding: 18px 36px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s;
+      font-family: var(--font);
+    }
+    .btn-hero:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 40px var(--accent-glow); }
+    .btn-hero-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--white); padding: 18px 36px;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer; transition: all 0.3s; font-family: var(--font);
+    }
+    .btn-hero-outline:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    .hero-visual {
+      position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+      width: 45%; max-width: 600px; z-index: 1; opacity: 0.7;
+    }
+    .hero-visual img { width: 100%; border-radius: 16px; mask-image: linear-gradient(to left, black 50%, transparent 100%); -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      padding: 60px 0; background: var(--bg-light);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .trust-bar .inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;
+    }
+    .trust-item { text-align: center; flex: 1; min-width: 140px; }
+    .trust-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--accent); }
+    .trust-label { margin-top: 6px; font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+
+    /* ── SERVICES ── */
+    .services { padding: 120px 0; background: var(--bg); }
+    .services-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .services-header h2 {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600; line-height: 1.15; margin-top: 16px;
+    }
+    .services-header p { margin-top: 16px; font-size: 0.95rem; color: var(--gray); font-weight: 300; line-height: 1.7; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 0; overflow: hidden; transition: all 0.4s; position: relative;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { border-color: rgba(108,92,231,0.2); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .service-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .service-body { padding: 32px; }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(108,92,231,0.1); display: flex;
+      align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .service-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
+    .service-card p { font-size: 0.88rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .service-tag {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 4px; background: rgba(108,92,231,0.08);
+      color: var(--accent-light); border: 1px solid rgba(108,92,231,0.12);
+    }
+
+    /* ── PORTFOLIO / SHOWCASE ── */
+    .showcase { padding: 120px 0; background: var(--bg-light); }
+    .showcase-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .showcase-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.15; margin-top: 16px; }
+    .showcase-header p { margin-top: 16px; font-size: 0.95rem; color: var(--gray); font-weight: 300; }
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .showcase-card {
+      position: relative; overflow: hidden; aspect-ratio: 16/10;
+      border: 1px solid var(--border); cursor: pointer;
+    }
+    .showcase-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .showcase-card:hover img { transform: scale(1.05); }
+    .showcase-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0.1) 50%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 32px; opacity: 0; transition: opacity 0.4s;
+    }
+    .showcase-card:hover .showcase-card-overlay { opacity: 1; }
+    .showcase-card-overlay h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
+    .showcase-card-overlay p { margin-top: 6px; font-size: 0.82rem; color: var(--gray); font-weight: 300; }
+    .showcase-card-overlay .tag {
+      display: inline-block; margin-top: 12px; font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-light);
+      background: rgba(108,92,231,0.15); padding: 4px 10px; border-radius: 3px;
+    }
+
+    /* ── PROCESS ── */
+    .process { padding: 120px 0; background: var(--bg-light); }
+    .process-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .process-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.15; margin-top: 16px; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.3;
+    }
+    .process-step { text-align: center; position: relative; z-index: 1; }
+    .process-step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--accent);
+    }
+    .process-step h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+    .process-step p { font-size: 0.82rem; line-height: 1.6; color: var(--gray); font-weight: 300; }
+
+    /* ── CTA ── */
+    .cta { padding: 120px 0; background: var(--bg); }
+    .cta-inner {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, rgba(108,92,231,0.15) 0%, rgba(108,92,231,0.03) 100%);
+      border: 1px solid rgba(108,92,231,0.15);
+      padding: 80px; text-align: center;
+    }
+    .cta-inner::before {
+      content: ''; position: absolute; inset: 0; opacity: 0.03;
+      background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .cta-inner h2 {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600; line-height: 1.15; position: relative; z-index: 1;
+    }
+    .cta-inner h2 .highlight { color: var(--accent); }
+    .cta-inner p { margin-top: 16px; font-size: 1rem; color: var(--gray); font-weight: 300; position: relative; z-index: 1; }
+    .cta-inner .btn-hero { margin-top: 36px; position: relative; z-index: 1; }
+
+    /* ── CONTACT ── */
+    .contact { padding: 120px 0; background: var(--bg-light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 600; line-height: 1.15; }
+    .contact-info h2 .highlight { color: var(--accent); }
+    .contact-items { margin-top: 40px; display: flex; flex-direction: column; gap: 28px; }
+    .contact-item-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 6px; }
+    .contact-item-value { font-size: 0.95rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
+    .contact-item-value a { transition: color 0.25s; color: var(--white); }
+    .contact-item-value a:hover { color: var(--accent-light); }
+
+    .contact-form { background: var(--bg-card); padding: 48px; border: 1px solid var(--border); }
+    .contact-form h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 32px; }
+    .form-group { margin-bottom: 24px; }
+    .form-group label { display: block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 8px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 14px 16px; background: var(--bg);
+      border: 1px solid var(--border); font-family: var(--font); font-size: 0.9rem;
+      color: var(--white); outline: none; transition: border-color 0.3s; border-radius: 0;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-dark); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { resize: none; min-height: 120px; }
+    .form-group select option { background: var(--bg-card); color: var(--white); }
+    .form-submit {
+      width: 100%; padding: 16px; background: var(--accent); color: var(--white);
+      border: none; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s; font-family: var(--font);
+    }
+    .form-submit:hover { background: var(--accent-light); box-shadow: 0 4px 20px var(--accent-glow); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg); padding: 48px 0; border-top: 1px solid var(--border); }
+    footer .inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); }
+    .footer-brand span { color: var(--accent); }
+    .footer-right { display: flex; align-items: center; gap: 24px; font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+    }
+    .footer-social a:hover { border-color: var(--accent); background: rgba(108,92,231,0.1); }
+    .footer-social svg { width: 16px; height: 16px; fill: var(--gray); }
+
+    /* ── WHATSAPP ── */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 90;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s; cursor: pointer;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .menu-toggle { display: block; }
+      nav.open {
+        display: flex; flex-direction: column; position: fixed;
+        top: 72px; left: 0; right: 0; bottom: 0;
+        background: rgba(10,10,15,0.97); backdrop-filter: blur(20px);
+        padding: 40px 24px; gap: 24px; z-index: 99;
+      }
+      nav.open a { font-size: 1.1rem; color: var(--white); }
+      .hero-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .cta-inner { padding: 48px 24px; }
+      .trust-bar .inner { justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn-hero, .btn-hero-outline { width: 100%; justify-content: center; }
+      footer .inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="inner">
+    <a href="#top" class="logo">Rysk<span>Digital.</span></a>
+    <nav id="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5551982303963" target="_blank" rel="noopener" class="btn-accent">Falar comigo</a>
+    </nav>
+    <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Agência de Produtos Digitais</span>
+    </div>
+    <h1>Transformamos sua ideia em um <span class="highlight">produto digital</span> que vende.</h1>
+    <p class="hero-sub">Criação de sites profissionais, materiais para Instagram e infoprodutos. Design que converte e comunicação que conecta.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="btn-hero">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Solicitar orçamento
+      </a>
+      <a href="#portfolio" class="btn-hero-outline">Ver trabalhos</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="inner">
+    <div class="trust-item reveal">
+      <div class="trust-num">50+</div>
+      <div class="trust-label">Projetos entregues</div>
+    </div>
+    <div class="trust-item reveal reveal-d1">
+      <div class="trust-num">30+</div>
+      <div class="trust-label">Clientes atendidos</div>
+    </div>
+    <div class="trust-item reveal reveal-d2">
+      <div class="trust-num">5+</div>
+      <div class="trust-label">Anos de experiência</div>
+    </div>
+    <div class="trust-item reveal reveal-d3">
+      <div class="trust-num">100%</div>
+      <div class="trust-label">Dedicado ao seu projeto</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="eyebrow">Serviços</p>
+      <h2>Tudo que seu negócio precisa para <span style="color:var(--accent)">brilhar no digital.</span></h2>
+      <p>Do site ao infoproduto — criamos cada peça pensando em converter visitante em cliente.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <img class="service-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=85&auto=format" alt="Criação de sites profissionais" loading="lazy" />
+        <div class="service-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Sites Profissionais</h3>
+          <p>Landing pages, sites institucionais e páginas de venda. Design moderno, velocidade e conversão.</p>
+          <div class="service-tags">
+            <span class="service-tag">Landing Page</span>
+            <span class="service-tag">Site Institucional</span>
+            <span class="service-tag">Página de Vendas</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d1">
+        <img class="service-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=85&auto=format" alt="Materiais para Instagram" loading="lazy" />
+        <div class="service-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <h3>Materiais para Instagram</h3>
+          <p>Carrosséis, stories, posts e identidade visual para redes sociais que engajam e vendem.</p>
+          <div class="service-tags">
+            <span class="service-tag">Carrossel</span>
+            <span class="service-tag">Stories</span>
+            <span class="service-tag">Feed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d2">
+        <img class="service-img" src="https://images.unsplash.com/photo-1553729459-uj9q3d70c42f?w=800&q=85&auto=format" alt="Infoprodutos" loading="lazy" />
+        <div class="service-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Infoprodutos</h3>
+          <p>Criação completa de e-books, cursos online e materiais digitais com design profissional.</p>
+          <div class="service-tags">
+            <span class="service-tag">E-book</span>
+            <span class="service-tag">Curso Online</span>
+            <span class="service-tag">Material Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="showcase" id="portfolio">
+  <div class="container">
+    <div class="showcase-header reveal">
+      <p class="eyebrow">Portfólio</p>
+      <h2>Projetos que <span style="color:var(--accent)">geram resultados.</span></h2>
+      <p>Cada pixel é pensado para comunicar valor e gerar confiança.</p>
+    </div>
+    <div class="showcase-grid">
+      <div class="showcase-card reveal">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85&auto=format" alt="Dashboard de projeto" loading="lazy" />
+        <div class="showcase-card-overlay">
+          <span class="tag">Landing Page</span>
+          <h3>Página de Lançamento</h3>
+          <p>Alta conversão para infoproduto</p>
+        </div>
+      </div>
+      <div class="showcase-card reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=85&auto=format" alt="Carrossel Instagram" loading="lazy" />
+        <div class="showcase-card-overlay">
+          <span class="tag">Instagram</span>
+          <h3>Série de Carrosséis</h3>
+          <p>Estratégia visual para engajamento</p>
+        </div>
+      </div>
+      <div class="showcase-card reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=800&q=85&auto=format" alt="E-book profissional" loading="lazy" />
+        <div class="showcase-card-overlay">
+          <span class="tag">Infoproduto</span>
+          <h3>E-book Premium</h3>
+          <p>Design e diagramação profissional</p>
+        </div>
+      </div>
+      <div class="showcase-card reveal reveal-d3">
+        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85&auto=format" alt="Site institucional" loading="lazy" />
+        <div class="showcase-card-overlay">
+          <span class="tag">Site Institucional</span>
+          <h3>Presença Digital</h3>
+          <p>Site completo com identidade visual</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="processo">
+  <div class="container">
+    <div class="process-header reveal">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Do briefing ao lançamento — <span style="color:var(--accent)">simples e direto.</span></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <h3>Briefing</h3>
+        <p>Conversamos sobre seu negócio, público e objetivos para entender exatamente o que precisa.</p>
+      </div>
+      <div class="process-step reveal reveal-d1">
+        <div class="process-step-num">02</div>
+        <h3>Design</h3>
+        <p>Crio o layout e a identidade visual. Você aprova antes de qualquer código ser escrito.</p>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="process-step-num">03</div>
+        <h3>Desenvolvimento</h3>
+        <p>Transformo o design em um produto funcional, rápido e otimizado para conversão.</p>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="process-step-num">04</div>
+        <h3>Entrega</h3>
+        <p>Seu produto digital pronto para lançar. Suporte e ajustes incluídos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Pronto para elevar sua <span class="highlight">presença digital?</span></h2>
+      <p>Entre em contato e vamos criar algo extraordinário juntos.</p>
+      <a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20meu%20projeto" target="_blank" rel="noopener" class="btn-hero">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">Contato</p>
+        <div style="width:48px;height:3px;background:var(--accent);margin:20px 0;border-radius:2px;"></div>
+        <h2>Vamos criar algo <span class="highlight">extraordinário</span> juntos.</h2>
+        <div class="contact-items">
+          <div>
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-value"><a href="https://wa.me/5551982303963" target="_blank" rel="noopener">(51) 98230-3963</a></div>
+          </div>
+          <div>
+            <div class="contact-item-label">E-mail</div>
+            <div class="contact-item-value"><a href="mailto:luisandremr@gmail.com">luisandremr@gmail.com</a></div>
+          </div>
+          <div>
+            <div class="contact-item-label">Atendimento</div>
+            <div class="contact-item-value">Segunda a sexta, das 9h às 18h<br/>Remoto para todo o Brasil</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-d1">
+        <h3>Solicite um orçamento</h3>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" placeholder="(51) 9 9999-9999" required />
+          </div>
+          <div class="form-group">
+            <label for="servico">O que você precisa?</label>
+            <select id="servico">
+              <option value="" disabled selected>Selecione um serviço</option>
+              <option value="site">Site Profissional</option>
+              <option value="instagram">Material para Instagram</option>
+              <option value="infoproduto">Infoproduto</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" rows="4" placeholder="Conte brevemente sobre seu projeto"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+    <div class="footer-brand">Rysk<span>Digital.</span></div>
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://wa.me/5551982303963" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+      <span>Rio Grande do Sul · Brasil</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const t = document.querySelector(this.getAttribute('href'));
+      if (t) { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('nav').classList.remove('open'); }
+    });
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const n = document.getElementById('nome').value;
+    const t = document.getElementById('telefone').value;
+    const s = document.getElementById('servico').value;
+    const m = document.getElementById('mensagem').value;
+    window.open(`https://wa.me/5551982303963?text=${encodeURIComponent(`Olá, sou ${n}.\nTelefone: ${t}\nServiço: ${s}\n\n${m}`)}`, '_blank');
+  }
+
+  window.addEventListener('scroll', () => {
+    document.querySelector('header').style.background = window.scrollY > 50 ? 'rgba(10,10,15,0.95)' : 'rgba(10,10,15,0.8)';
+  });
+</script>
+
+</body>
+</html>
