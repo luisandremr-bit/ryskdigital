@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/ryskplay",
+      "destination": "https://ryskplay.base44.app"
+    },
+    {
+      "source": "/ryskplay/:path*",
+      "destination": "https://ryskplay.base44.app/:path*"
+    }
+  ]
+}
