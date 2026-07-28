@@ -1,1 +1,14 @@
-{}
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ryskplay.ryskdigital.com.br"
+        }
+      ],
+      "destination": "https://ryskplay.base44.app/:path*"
+    }
+  ]
+}
