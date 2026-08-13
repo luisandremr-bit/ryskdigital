@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RyskDigital | Agência de Produtos Digitais</title>
-  <meta name="description" content="RyskDigital - Agência de produtos digitais. Criação de sites profissionais, materiais para Instagram e infoprodutos." />
+  <title>RyskDigital | Projetos Digitais, Sites e Soluções Web</title>
+  <meta name="description" content="RyskDigital desenvolve sites, produtos digitais, soluções web e projetos criativos. Conheça nosso portfólio de projetos reais publicados." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RyskDigital | Projetos Digitais, Sites e Soluções Web" />
+  <meta property="og:description" content="Projetos digitais reais. Do conceito à publicação. Sites, produtos digitais, soluções web e projetos de conteúdo." />
+  <meta property="og:url" content="https://ryskdigital.com.br/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -60,7 +64,7 @@
     .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
 
     /* ── HERO ── */
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding-top: 72px; }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
       background:
@@ -75,25 +79,27 @@
         linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
       background-size: 80px 80px;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 140px 24px 80px; width: 100%; }
+    .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 120px 24px 100px; width: 100%; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(108,92,231,0.1); border: 1px solid rgba(108,92,231,0.2);
-      padding: 8px 16px; border-radius: 40px; margin-bottom: 32px;
+      padding: 8px 16px; border-radius: 40px; margin-bottom: 28px;
     }
     .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
     .hero-badge span { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; color: var(--accent-light); text-transform: uppercase; }
     .hero h1 {
-      font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 4.8rem);
-      font-weight: 600; line-height: 1.05; max-width: 800px; margin-top: 16px;
+      font-family: var(--font-display); font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+      font-weight: 600; line-height: 1.1; max-width: 720px;
     }
     .hero h1 .highlight { color: var(--accent); }
     .hero-sub {
-      margin-top: 24px; max-width: 500px; font-size: 1.05rem;
+      margin-top: 24px; max-width: 520px; font-size: 1.05rem;
       line-height: 1.7; color: var(--gray); font-weight: 300;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+    .hero-proof { margin-top: 18px; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--gray); font-weight: 300; }
+    .hero-proof .check { color: var(--accent-light); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px; }
     .btn-hero {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--accent); color: var(--white); padding: 18px 36px;
@@ -111,37 +117,80 @@
     }
     .btn-hero-outline:hover { border-color: var(--accent); color: var(--accent-light); }
 
-    .hero-visual {
-      position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
-      width: 45%; max-width: 600px; z-index: 1; opacity: 0.7;
+    /* ── PARTNERS MARQUEE ── */
+    .partners { padding: 104px 0 48px; background: var(--bg-light); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .partners-title { text-align: center; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .partners-title span { color: var(--accent); }
+    .partners-sub { text-align: center; color: var(--gray); font-size: 0.85rem; margin-bottom: 40px; font-weight: 300; }
+    .partners-track-wrap { position: relative; overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%); }
+    .partners-track { display: flex; gap: 48px; width: max-content; animation: scroll 30s linear infinite; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .partners-track:hover { animation-play-state: paused; }
+    .partner-item { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; transition: all 0.3s; }
+    .partner-logo-wrap {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid var(--border); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg-card); flex-shrink: 0; transition: border-color 0.3s;
     }
-    .hero-visual img { width: 100%; border-radius: 16px; mask-image: linear-gradient(to left, black 50%, transparent 100%); -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%); }
+    .partner-item:hover .partner-logo-wrap { border-color: var(--accent); }
+    .partner-logo-wrap img, .partner-logo-wrap svg { width: 100%; height: 100%; object-fit: cover; }
+    .partner-name { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--white); }
 
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      padding: 60px 0; background: var(--bg-light);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    /* ── SECTION HEADERS ── */
+    .section { padding: 100px 0; }
+    .section-alt { background: var(--bg-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .section-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.15; margin-top: 14px; }
+    .section-header h2 .accent { color: var(--accent); }
+    .section-header p { margin-top: 16px; font-size: 0.98rem; color: var(--gray); font-weight: 300; line-height: 1.7; }
+
+    /* ── PROJECT LIST (clientes / próprios) ── */
+    .featured-logo {
+      width: 56px; height: 56px; border-radius: 50%; overflow: hidden;
+      background: var(--bg); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .trust-bar .inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;
+    .featured-logo svg, .featured-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .project-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: all 0.4s; position: relative; overflow: hidden;
     }
-    .trust-item { text-align: center; flex: 1; min-width: 140px; }
-    .trust-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--accent); }
-    .trust-label { margin-top: 6px; font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+    .project-card:hover { border-color: rgba(108,92,231,0.35); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+    .project-card .featured-logo { margin-bottom: 4px; }
+    .project-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.25; }
+    .project-card .project-desc { font-size: 0.88rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .project-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; background: rgba(108,92,231,0.08); color: var(--accent-light); border: 1px solid rgba(108,92,231,0.12); }
+    .project-tag.green { background: rgba(46,204,113,0.08); color: #2ecc71; border-color: rgba(46,204,113,0.15); }
+    .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); gap: 12px; flex-wrap: wrap; }
+    .project-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 600; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.15); padding: 10px 18px;
+      transition: all 0.3s; background: transparent;
+    }
+    .project-btn:hover { border-color: var(--accent); color: var(--accent-light); gap: 14px; }
+
+    .group-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .group-label .badge {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px;
+    }
+    .group-label .badge.client { background: rgba(108,92,231,0.15); color: var(--accent-light); }
+    .group-label .badge.own { background: rgba(46,204,113,0.12); color: #2ecc71; }
+    .project-group + .project-group { margin-top: 56px; }
 
     /* ── SERVICES ── */
-    .services { padding: 120px 0; background: var(--bg); }
-    .services-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
-    .services-header h2 {
-      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 600; line-height: 1.15; margin-top: 16px;
-    }
-    .services-header p { margin-top: 16px; font-size: 0.95rem; color: var(--gray); font-weight: 300; line-height: 1.7; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .service-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      padding: 0; overflow: hidden; transition: all 0.4s; position: relative;
+      padding: 32px 28px; transition: all 0.4s; position: relative; overflow: hidden;
     }
     .service-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -150,57 +199,21 @@
     }
     .service-card:hover::before { transform: scaleX(1); }
     .service-card:hover { border-color: rgba(108,92,231,0.2); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-    .service-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
-    .service-body { padding: 32px; }
     .service-icon {
       width: 48px; height: 48px; border-radius: 12px;
       background: rgba(108,92,231,0.1); display: flex;
       align-items: center; justify-content: center; margin-bottom: 20px;
     }
     .service-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
-    .service-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
-    .service-card p { font-size: 0.88rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
-    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .service-tag {
-      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 6px 12px; border-radius: 4px; background: rgba(108,92,231,0.08);
-      color: var(--accent-light); border: 1px solid rgba(108,92,231,0.12);
-    }
-
-    /* ── PORTFOLIO / SHOWCASE ── */
-    .showcase { padding: 120px 0; background: var(--bg-light); }
-    .showcase-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
-    .showcase-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.15; margin-top: 16px; }
-    .showcase-header p { margin-top: 16px; font-size: 0.95rem; color: var(--gray); font-weight: 300; }
-    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .showcase-card {
-      position: relative; overflow: hidden; aspect-ratio: 16/10;
-      border: 1px solid var(--border); cursor: pointer;
-    }
-    .showcase-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-    .showcase-card:hover img { transform: scale(1.05); }
-    .showcase-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0.1) 50%, transparent 100%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 32px; opacity: 0; transition: opacity 0.4s;
-    }
-    .showcase-card:hover .showcase-card-overlay { opacity: 1; }
-    .showcase-card-overlay h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
-    .showcase-card-overlay p { margin-top: 6px; font-size: 0.82rem; color: var(--gray); font-weight: 300; }
-    .showcase-card-overlay .tag {
-      display: inline-block; margin-top: 12px; font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-light);
-      background: rgba(108,92,231,0.15); padding: 4px 10px; border-radius: 3px;
-    }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 14px; }
+    .service-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .service-card li { font-size: 0.85rem; line-height: 1.5; color: var(--gray); font-weight: 300; padding-left: 18px; position: relative; }
+    .service-card li::before { content: '→'; position: absolute; left: 0; color: var(--accent-light); font-weight: 500; }
 
     /* ── PROCESS ── */
-    .process { padding: 120px 0; background: var(--bg-light); }
-    .process-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
-    .process-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.15; margin-top: 16px; }
-    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; position: relative; }
     .process-steps::before {
-      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%;
+      content: ''; position: absolute; top: 36px; left: 10%; right: 10%;
       height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity: 0.3;
     }
@@ -209,14 +222,23 @@
       width: 72px; height: 72px; border-radius: 50%;
       background: var(--bg-card); border: 2px solid var(--accent);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
-      font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--accent);
+      margin: 0 auto 20px;
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--accent);
     }
-    .process-step h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
-    .process-step p { font-size: 0.82rem; line-height: 1.6; color: var(--gray); font-weight: 300; }
+    .process-step h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+    .process-step p { font-size: 0.8rem; line-height: 1.6; color: var(--gray); font-weight: 300; }
 
-    /* ── CTA ── */
-    .cta { padding: 120px 0; background: var(--bg); }
+    /* ── WHY / CREDIBILITY ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .why-card { background: var(--bg-card); border: 1px solid var(--border); padding: 32px; transition: all 0.4s; }
+    .why-card:hover { border-color: rgba(108,92,231,0.35); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .why-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(108,92,231,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .why-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+    .why-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+    .why-card p { font-size: 0.86rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+
+    /* ── CTA FINAL ── */
+    .cta { padding: 110px 0; background: var(--bg); }
     .cta-inner {
       position: relative; overflow: hidden;
       background: linear-gradient(135deg, rgba(108,92,231,0.15) 0%, rgba(108,92,231,0.03) 100%);
@@ -229,18 +251,15 @@
         linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
       background-size: 40px 40px;
     }
-    .cta-inner h2 {
-      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 600; line-height: 1.15; position: relative; z-index: 1;
-    }
+    .cta-inner h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.15; position: relative; z-index: 1; }
     .cta-inner h2 .highlight { color: var(--accent); }
-    .cta-inner p { margin-top: 16px; font-size: 1rem; color: var(--gray); font-weight: 300; position: relative; z-index: 1; }
-    .cta-inner .btn-hero { margin-top: 36px; position: relative; z-index: 1; }
+    .cta-inner p { margin-top: 16px; font-size: 1rem; color: var(--gray); font-weight: 300; position: relative; z-index: 1; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-inner .hero-actions { margin-top: 36px; position: relative; z-index: 1; justify-content: center; }
 
     /* ── CONTACT ── */
-    .contact { padding: 120px 0; background: var(--bg-light); }
+    .contact { padding: 100px 0; background: var(--bg-light); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-    .contact-info h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 600; line-height: 1.15; }
+    .contact-info h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 600; line-height: 1.15; }
     .contact-info h2 .highlight { color: var(--accent); }
     .contact-items { margin-top: 40px; display: flex; flex-direction: column; gap: 28px; }
     .contact-item-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 6px; }
@@ -275,7 +294,7 @@
     footer .inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-brand { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); }
     .footer-brand span { color: var(--accent); }
-    .footer-right { display: flex; align-items: center; gap: 24px; font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+    .footer-right { display: flex; align-items: center; gap: 24px; font-size: 0.78rem; color: var(--gray); font-weight: 300; flex-wrap: wrap; }
     .footer-social { display: flex; gap: 12px; }
     .footer-social a {
       width: 36px; height: 36px; border-radius: 8px;
@@ -302,6 +321,7 @@
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
@@ -314,101 +334,23 @@
         padding: 40px 24px; gap: 24px; z-index: 99;
       }
       nav.open a { font-size: 1.1rem; color: var(--white); }
-      .hero-visual { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .showcase-grid { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       .process-steps::before { display: none; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .cta-inner { padding: 48px 24px; }
-      .trust-bar .inner { justify-content: center; }
     }
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-content { padding-top: 90px; }
       .process-steps { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; }
       .btn-hero, .btn-hero-outline { width: 100%; justify-content: center; }
       footer .inner { flex-direction: column; text-align: center; }
-    }
-
-    /* ── PARTNERS BANNER ── */
-    .partners {
-      padding: 104px 0 48px;
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .partners-title {
-      text-align: center;
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 32px;
-    }
-    .partners-title span {
-      color: var(--accent);
-    }
-    .partners-track-wrap {
-      position: relative;
-      overflow: hidden;
-      mask-image: linear-gradient(to right, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
-    }
-    .partners-track {
-      display: flex;
-      gap: 48px;
-      width: max-content;
-      animation: scroll 25s linear infinite;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .partners-track:hover {
-      animation-play-state: paused;
-    }
-    .partner-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      min-width: 120px;
-      transition: all 0.3s;
-    }
-    .partner-item:hover .partner-logo-wrap {
-      border-color: var(--accent);
-      transform: scale(1.05);
-    }
-    .partner-item:hover .partner-name {
-      color: var(--accent-light);
-    }
-    .partner-logo-wrap {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-card);
-      transition: all 0.3s;
-    }
-    .partner-logo-wrap img,
-    .partner-logo-wrap svg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .partner-name {
-      font-size: 0.7rem;
-      font-weight: 400;
-      color: var(--gray);
-      text-align: center;
-      line-height: 1.3;
-      transition: color 0.3s;
-      max-width: 110px;
     }
   </style>
 </head>
@@ -419,71 +361,18 @@
   <div class="inner">
     <a href="#top" class="logo">Rysk<span>Digital.</span></a>
     <nav id="nav">
+      <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
-      <a href="#portfolio">Portfólio</a>
       <a href="#processo">Processo</a>
+      <a href="#diferenciais">Diferenciais</a>
       <a href="#contato">Contato</a>
-      <a href="https://wa.me/5551982303963" target="_blank" rel="noopener" class="btn-accent">Falar comigo</a>
+      <a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="btn-accent">Solicitar orçamento</a>
     </nav>
     <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-
-<!-- PARTNERS BANNER -->
-<section class="partners">
-  <p class="partners-title">Clientes e parceiros da <span>RyskDigital</span></p>
-  <div class="partners-track-wrap">
-    <div class="partners-track">
-      <a href="https://ryskplay.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://media.base44.com/images/public/6a5a1056f22420c37b49845e/328037f5d_IMG-20260716-WA0028.jpg" alt="Ryskplay" loading="lazy" /></div>
-        <span class="partner-name">Ryskplay</span>
-      </a>
-      <a href="https://www.youtube.com/@avidaemsegundos" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/QtKgD8wPHw8j_HjVB_C-JtNS8x7YtoTOL8b7wa_iiUzysOy6252Jn_SyXEeHauftimrMu3QRsA=s160-c-k-c0x00ffffff-no-rj" alt="A vida em 8 segundos" loading="lazy" /></div>
-        <span class="partner-name">A vida em 8 segundos</span>
-      </a>
-      <a href="https://orcafacil.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://orca-serv-production.up.railway.app/logo-white.svg" alt="OrcaFacil" loading="lazy" /></div>
-        <span class="partner-name">OrcaFacil</span>
-      </a>
-      <a href="https://rysdyk.com.br" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap">
-          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><polygon points="1.5,44 17.5,44 25,70 9,70" fill="#ed4d18"/><polygon points="18.8,24 34.8,24 48,70 32,70" fill="#ed4d18"/><polygon points="36.6,6 52.6,6 71,70 55,70" fill="#ed4d18"/></svg>
-        </div>
-        <span class="partner-name">Rysdyk Implementos Rodoviários</span>
-      </a>
-      <a href="https://www.youtube.com/@CovenFlameGospel" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/NaSaU20Y9zhJ4Tpg9TAdrSRT2kJGWqTPhMHiJQyLyO_u-miUuOJ8ycf1Wp0CMVbvHu9NPowq=s200-c-k-c0x00ffffff-no-rj" alt="Banda Coven Flame" loading="lazy" /></div>
-        <span class="partner-name">Banda Coven Flame</span>
-      </a>
-      <!-- DUPLICATE FOR INFINITE SCROLL -->
-      <a href="https://ryskplay.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://media.base44.com/images/public/6a5a1056f22420c37b49845e/328037f5d_IMG-20260716-WA0028.jpg" alt="Ryskplay" loading="lazy" /></div>
-        <span class="partner-name">Ryskplay</span>
-      </a>
-      <a href="https://www.youtube.com/@avidaemsegundos" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/QtKgD8wPHw8j_HjVB_C-JtNS8x7YtoTOL8b7wa_iiUzysOy6252Jn_SyXEeHauftimrMu3QRsA=s160-c-k-c0x00ffffff-no-rj" alt="A vida em 8 segundos" loading="lazy" /></div>
-        <span class="partner-name">A vida em 8 segundos</span>
-      </a>
-      <a href="https://orcafacil.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://orca-serv-production.up.railway.app/logo-white.svg" alt="OrcaFacil" loading="lazy" /></div>
-        <span class="partner-name">OrcaFacil</span>
-      </a>
-      <a href="https://rysdyk.com.br" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap">
-          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><polygon points="1.5,44 17.5,44 25,70 9,70" fill="#ed4d18"/><polygon points="18.8,24 34.8,24 48,70 32,70" fill="#ed4d18"/><polygon points="36.6,6 52.6,6 71,70 55,70" fill="#ed4d18"/></svg>
-        </div>
-        <span class="partner-name">Rysdyk Implementos Rodoviários</span>
-      </a>
-      <a href="https://www.youtube.com/@CovenFlameGospel" target="_blank" rel="noopener" class="partner-item">
-        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/NaSaU20Y9zhJ4Tpg9TAdrSRT2kJGWqTPhMHiJQyLyO_u-miUuOJ8ycf1Wp0CMVbvHu9NPowq=s200-c-k-c0x00ffffff-no-rj" alt="Banda Coven Flame" loading="lazy" /></div>
-        <span class="partner-name">Banda Coven Flame</span>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -492,199 +381,378 @@
   <div class="hero-content">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      <span>Agência de Produtos Digitais</span>
+      <span>Projetos digitais reais</span>
     </div>
-    <h1>Transformamos sua ideia em um <span class="highlight">produto digital</span> que vende.</h1>
-    <p class="hero-sub">Criação de sites profissionais, materiais para Instagram e infoprodutos. Design que converte e comunicação que conecta.</p>
+    <h1>Do conceito à <span class="highlight">publicação.</span></h1>
+    <p class="hero-sub">Desenvolvemos sites, produtos digitais, soluções web e projetos de conteúdo com tecnologia, criatividade e inteligência artificial.</p>
+    <div class="hero-proof"><span class="check">✓</span> Não mostramos apenas o que sabemos fazer. Mostramos projetos reais, publicados e funcionando.</div>
     <div class="hero-actions">
-      <a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="btn-hero">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Solicitar orçamento
-      </a>
-      <a href="#portfolio" class="btn-hero-outline">Ver trabalhos</a>
+      <a href="#projetos" class="btn-hero">Conheça nossos projetos</a>
+      <a href="#contato" class="btn-hero-outline">Solicite um orçamento</a>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="inner">
-    <div class="trust-item reveal">
-      <div class="trust-num">50+</div>
-      <div class="trust-label">Projetos entregues</div>
-    </div>
-    <div class="trust-item reveal reveal-d1">
-      <div class="trust-num">30+</div>
-      <div class="trust-label">Clientes atendidos</div>
-    </div>
-    <div class="trust-item reveal reveal-d2">
-      <div class="trust-num">5+</div>
-      <div class="trust-label">Anos de experiência</div>
-    </div>
-    <div class="trust-item reveal reveal-d3">
-      <div class="trust-num">100%</div>
-      <div class="trust-label">Dedicado ao seu projeto</div>
+<!-- PARTNERS MARQUEE -->
+<section class="partners">
+  <p class="partners-title">Projetos publicados pela <span>RyskDigital</span></p>
+  <p class="partners-sub">Projetos reais que você pode acessar e verificar.</p>
+  <div class="partners-track-wrap">
+    <div class="partners-track">
+      <a href="https://rysdyk.com.br" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><polygon points="1.5,44 17.5,44 25,70 9,70" fill="#ed4d18"/><polygon points="18.8,24 34.8,24 48,70 32,70" fill="#ed4d18"/><polygon points="36.6,6 52.6,6 71,70 55,70" fill="#ed4d18"/></svg>
+        </div>
+        <span class="partner-name">Rysdyk</span>
+      </a>
+      <a href="https://orcafacil.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://orca-serv-production.up.railway.app/logo-white.svg" alt="OrçaFácil" loading="lazy" /></div>
+        <span class="partner-name">OrçaFácil</span>
+      </a>
+      <a href="https://www.youtube.com/@CovenFlameGospel" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/NaSaU20Y9zhJ4Tpg9TAdrSRT2kJGWqTPhMHiJQyLyO_u-miUuOJ8ycf1Wp0CMVbvHu9NPowq=s200-c-k-c0x00ffffff-no-rj" alt="Coven Flame" loading="lazy" /></div>
+        <span class="partner-name">Coven Flame</span>
+      </a>
+      <a href="https://www.youtube.com/@avidaemsegundos" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/QtKgD8wPHw8j_HjVB_C-JtNS8x7YtoTOL8b7wa_iiUzysOy6252Jn_SyXEeHauftimrMu3QRsA=s160-c-k-c0x00ffffff-no-rj" alt="A vida em 8 segundos" loading="lazy" /></div>
+        <span class="partner-name">A vida em 8 segundos</span>
+      </a>
+      <a href="https://ryskplay.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://media.base44.com/images/public/6a5a1056f22420c37b49845e/328037f5d_IMG-20260716-WA0028.jpg" alt="Rysk Play" loading="lazy" /></div>
+        <span class="partner-name">Rysk Play</span>
+      </a>
+      <!-- DUPLICATE FOR INFINITE SCROLL -->
+      <a href="https://rysdyk.com.br" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><polygon points="1.5,44 17.5,44 25,70 9,70" fill="#ed4d18"/><polygon points="18.8,24 34.8,24 48,70 32,70" fill="#ed4d18"/><polygon points="36.6,6 52.6,6 71,70 55,70" fill="#ed4d18"/></svg>
+        </div>
+        <span class="partner-name">Rysdyk</span>
+      </a>
+      <a href="https://orcafacil.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://orca-serv-production.up.railway.app/logo-white.svg" alt="OrçaFácil" loading="lazy" /></div>
+        <span class="partner-name">OrçaFácil</span>
+      </a>
+      <a href="https://www.youtube.com/@CovenFlameGospel" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/NaSaU20Y9zhJ4Tpg9TAdrSRT2kJGWqTPhMHiJQyLyO_u-miUuOJ8ycf1Wp0CMVbvHu9NPowq=s200-c-k-c0x00ffffff-no-rj" alt="Coven Flame" loading="lazy" /></div>
+        <span class="partner-name">Coven Flame</span>
+      </a>
+      <a href="https://www.youtube.com/@avidaemsegundos" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://yt3.googleusercontent.com/QtKgD8wPHw8j_HjVB_C-JtNS8x7YtoTOL8b7wa_iiUzysOy6252Jn_SyXEeHauftimrMu3QRsA=s160-c-k-c0x00ffffff-no-rj" alt="A vida em 8 segundos" loading="lazy" /></div>
+        <span class="partner-name">A vida em 8 segundos</span>
+      </a>
+      <a href="https://ryskplay.ryskdigital.com.br" target="_blank" rel="noopener" class="partner-item">
+        <div class="partner-logo-wrap"><img src="https://media.base44.com/images/public/6a5a1056f22420c37b49845e/328037f5d_IMG-20260716-WA0028.jpg" alt="Rysk Play" loading="lazy" /></div>
+        <span class="partner-name">Rysk Play</span>
+      </a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- SERVICES -->
-<section class="services" id="servicos">
+<!-- PROJETOS E CASES -->
+<section class="section" id="projetos">
   <div class="container">
-    <div class="services-header reveal">
+    <div class="section-header reveal">
+      <p class="eyebrow">Portfólio</p>
+      <h2>Projetos e <span class="accent">Cases</span></h2>
+      <p>Projetos reais desenvolvidos pela RyskDigital e publicados na internet. Cada projeto pode ser acessado e verificado.</p>
+    </div>
+
+    <div class="project-group reveal">
+      <span class="group-label"><span class="badge client">Cliente</span> Projetos para clientes</span>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><polygon points="1.5,44 17.5,44 25,70 9,70" fill="#ed4d18"/><polygon points="18.8,24 34.8,24 48,70 32,70" fill="#ed4d18"/><polygon points="36.6,6 52.6,6 71,70 55,70" fill="#ed4d18"/></svg>
+          </div>
+          <h3>Rysdyk Implementos Rodoviários</h3>
+          <p class="project-desc">Desenvolvimento do site institucional da Rysdyk, fabricante de implementos rodoviários. Projeto desenvolvido pela RyskDigital.</p>
+          <div class="project-tags">
+            <span class="project-tag">Site Institucional</span>
+            <span class="project-tag green">Publicado</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="https://rysdyk.com.br" target="_blank" rel="noopener">Visitar projeto →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><text x="40" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#c6d42b">G</text></svg>
+          </div>
+          <h3>Gui Marmitaria</h3>
+          <p class="project-desc">Projeto de presença digital e conteúdo visual para Instagram.</p>
+          <div class="project-tags">
+            <span class="project-tag">Presença Digital</span>
+            <span class="project-tag">Conteúdo</span>
+            <span class="project-tag green">Ativo</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="https://www.instagram.com/guiguimarmitaria/" target="_blank" rel="noopener">Ver projeto →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><text x="40" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">RD</text></svg>
+          </div>
+          <h3>Seu projeto aqui</h3>
+          <p class="project-desc">Sua ideia pode ser o próximo projeto publicado neste portfólio. Fale com a RyskDigital e transforme seu projeto em realidade.</p>
+          <div class="project-tags">
+            <span class="project-tag">Novo Projeto</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="#contato">Iniciar projeto →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-group reveal">
+      <span class="group-label"><span class="badge own">Próprio</span> Projetos próprios</span>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><text x="40" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#6c5ce7">OF</text></svg>
+          </div>
+          <h3>OrçaFácil</h3>
+          <p class="project-desc">Micro SaaS desenvolvido para facilitar a criação e o envio de orçamentos profissionais.</p>
+          <div class="project-tags">
+            <span class="project-tag">Micro SaaS</span>
+            <span class="project-tag">Solução Web</span>
+            <span class="project-tag green">Publicado</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="https://orcafacil.ryskdigital.com.br" target="_blank" rel="noopener">Acessar projeto →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><text x="40" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#f97316">CF</text></svg>
+          </div>
+          <h3>Coven Flame</h3>
+          <p class="project-desc">Projeto musical desenvolvido pela RyskDigital, envolvendo composição, produção musical, identidade artística e presença digital.</p>
+          <div class="project-tags">
+            <span class="project-tag">Produção Musical</span>
+            <span class="project-tag">Identidade</span>
+            <span class="project-tag green">Ativo</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="https://www.youtube.com/@CovenFlameGospel" target="_blank" rel="noopener">Conhecer projeto →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><text x="40" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#a29bfe">8s</text></svg>
+          </div>
+          <h3>A vida em 8 segundos</h3>
+          <p class="project-desc">Projeto de conteúdo audiovisual desenvolvido para experimentação de formatos curtos, narrativa visual e produção com inteligência artificial.</p>
+          <div class="project-tags">
+            <span class="project-tag">Conteúdo</span>
+            <span class="project-tag">Audiovisual</span>
+            <span class="project-tag green">Ativo</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="https://www.youtube.com/@avidaemsegundos" target="_blank" rel="noopener">Ver canal →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="featured-logo">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#16161f"/><path d="M30 24 L56 40 L30 56 Z" fill="#25D366"/></svg>
+          </div>
+          <h3>Rysk Play</h3>
+          <p class="project-desc">Projeto próprio da RyskDigital voltado para entretenimento digital.</p>
+          <div class="project-tags">
+            <span class="project-tag">Entretenimento</span>
+            <span class="project-tag green">Publicado</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-btn" href="https://ryskplay.ryskdigital.com.br" target="_blank" rel="noopener">Acessar projeto →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section section-alt" id="servicos">
+  <div class="container">
+    <div class="section-header reveal">
       <p class="eyebrow">Serviços</p>
-      <h2>Tudo que seu negócio precisa para <span style="color:var(--accent)">brilhar no digital.</span></h2>
-      <p>Do site ao infoproduto — criamos cada peça pensando em converter visitante em cliente.</p>
+      <h2>O que podemos <span class="accent">desenvolver</span></h2>
+      <p>Projetos desenvolvidos e realizados pela RyskDigital, do site ao produto digital.</p>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <img class="service-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=85&auto=format" alt="Criação de sites profissionais" loading="lazy" />
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>Sites Profissionais</h3>
-          <p>Landing pages, sites institucionais e páginas de venda. Design moderno, velocidade e conversão.</p>
-          <div class="service-tags">
-            <span class="service-tag">Landing Page</span>
-            <span class="service-tag">Site Institucional</span>
-            <span class="service-tag">Página de Vendas</span>
-          </div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
+        <h3>Desenvolvimento Web</h3>
+        <ul>
+          <li>Sites institucionais</li>
+          <li>Landing pages</li>
+          <li>Páginas de vendas</li>
+          <li>Sites responsivos</li>
+          <li>Interfaces web</li>
+        </ul>
       </div>
       <div class="service-card reveal reveal-d1">
-        <img class="service-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=85&auto=format" alt="Materiais para Instagram" loading="lazy" />
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </div>
-          <h3>Materiais para Instagram</h3>
-          <p>Carrosséis, stories, posts e identidade visual para redes sociais que engajam e vendem.</p>
-          <div class="service-tags">
-            <span class="service-tag">Carrossel</span>
-            <span class="service-tag">Stories</span>
-            <span class="service-tag">Feed</span>
-          </div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
         </div>
+        <h3>Produtos Digitais</h3>
+        <ul>
+          <li>Micro SaaS</li>
+          <li>Ferramentas web</li>
+          <li>Sistemas simples</li>
+          <li>MVPs</li>
+          <li>Soluções personalizadas</li>
+        </ul>
       </div>
       <div class="service-card reveal reveal-d2">
-        <img class="service-img" src="https://images.unsplash.com/photo-1553729459-uj9q3d70c42f?w=800&q=85&auto=format" alt="Infoprodutos" loading="lazy" />
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          </div>
-          <h3>Infoprodutos</h3>
-          <p>Criação completa de e-books, cursos online e materiais digitais com design profissional.</p>
-          <div class="service-tags">
-            <span class="service-tag">E-book</span>
-            <span class="service-tag">Curso Online</span>
-            <span class="service-tag">Material Digital</span>
-          </div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </div>
+        <h3>Presença Digital e Conteúdo</h3>
+        <ul>
+          <li>Estruturação de presença digital</li>
+          <li>Conteúdo visual</li>
+          <li>Projetos para redes sociais</li>
+          <li>Projetos para YouTube</li>
+        </ul>
+      </div>
+      <div class="service-card reveal reveal-d3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <h3>Produção Musical e Áudio</h3>
+        <ul>
+          <li>Composição</li>
+          <li>Produção musical</li>
+          <li>Criação de projetos musicais</li>
+          <li>Identidade artística digital</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section class="showcase" id="portfolio">
+<!-- PROCESSO -->
+<section class="section" id="processo">
   <div class="container">
-    <div class="showcase-header reveal">
-      <p class="eyebrow">Portfólio</p>
-      <h2>Projetos que <span style="color:var(--accent)">geram resultados.</span></h2>
-      <p>Cada pixel é pensado para comunicar valor e gerar confiança.</p>
-    </div>
-    <div class="showcase-grid">
-      <div class="showcase-card reveal">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85&auto=format" alt="Dashboard de projeto" loading="lazy" />
-        <div class="showcase-card-overlay">
-          <span class="tag">Landing Page</span>
-          <h3>Página de Lançamento</h3>
-          <p>Alta conversão para infoproduto</p>
-        </div>
-      </div>
-      <div class="showcase-card reveal reveal-d1">
-        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=85&auto=format" alt="Carrossel Instagram" loading="lazy" />
-        <div class="showcase-card-overlay">
-          <span class="tag">Instagram</span>
-          <h3>Série de Carrosséis</h3>
-          <p>Estratégia visual para engajamento</p>
-        </div>
-      </div>
-      <div class="showcase-card reveal reveal-d2">
-        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=800&q=85&auto=format" alt="E-book profissional" loading="lazy" />
-        <div class="showcase-card-overlay">
-          <span class="tag">Infoproduto</span>
-          <h3>E-book Premium</h3>
-          <p>Design e diagramação profissional</p>
-        </div>
-      </div>
-      <div class="showcase-card reveal reveal-d3">
-        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85&auto=format" alt="Site institucional" loading="lazy" />
-        <div class="showcase-card-overlay">
-          <span class="tag">Site Institucional</span>
-          <h3>Presença Digital</h3>
-          <p>Site completo com identidade visual</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process" id="processo">
-  <div class="container">
-    <div class="process-header reveal">
-      <p class="eyebrow">Como funciona</p>
-      <h2>Do briefing ao lançamento — <span style="color:var(--accent)">simples e direto.</span></h2>
+    <div class="section-header reveal">
+      <p class="eyebrow">Como trabalhamos</p>
+      <h2>Do conceito ao projeto <span class="accent">publicado</span></h2>
+      <p>Um processo simples e direto, do primeiro contato à entrega do projeto funcionando.</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="process-step-num">01</div>
-        <h3>Briefing</h3>
-        <p>Conversamos sobre seu negócio, público e objetivos para entender exatamente o que precisa.</p>
+        <h3>Entendimento</h3>
+        <p>Entendemos a ideia, necessidade e objetivo do projeto.</p>
       </div>
       <div class="process-step reveal reveal-d1">
         <div class="process-step-num">02</div>
-        <h3>Design</h3>
-        <p>Crio o layout e a identidade visual. Você aprova antes de qualquer código ser escrito.</p>
+        <h3>Planejamento</h3>
+        <p>Definimos estrutura, funcionalidades e direção visual.</p>
       </div>
       <div class="process-step reveal reveal-d2">
         <div class="process-step-num">03</div>
         <h3>Desenvolvimento</h3>
-        <p>Transformo o design em um produto funcional, rápido e otimizado para conversão.</p>
+        <p>Construímos o projeto utilizando as tecnologias mais adequadas.</p>
       </div>
       <div class="process-step reveal reveal-d3">
         <div class="process-step-num">04</div>
-        <h3>Entrega</h3>
-        <p>Seu produto digital pronto para lançar. Suporte e ajustes incluídos.</p>
+        <h3>Ajustes</h3>
+        <p>Validamos o resultado e realizamos os ajustes necessários.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="process-step-num">05</div>
+        <h3>Publicação</h3>
+        <p>Entregamos o projeto pronto para utilização.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- DIFERENCIAIS -->
+<section class="section section-alt" id="diferenciais">
   <div class="container">
-    <div class="cta-inner reveal">
-      <h2>Pronto para elevar sua <span class="highlight">presença digital?</span></h2>
-      <p>Entre em contato e vamos criar algo extraordinário juntos.</p>
-      <a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20meu%20projeto" target="_blank" rel="noopener" class="btn-hero">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Falar no WhatsApp
-      </a>
+    <div class="section-header reveal">
+      <p class="eyebrow">Credibilidade</p>
+      <h2>Por que contratar a <span class="accent">RyskDigital?</span></h2>
+      <p>Argumentos concretos, verificáveis — sem promessas vazias.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Projetos reais publicados</h3>
+        <p>Cada projeto mostrado no portfólio está publicado e pode ser acessado diretamente.</p>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Portfólio verificável</h3>
+        <p>Links diretos para cada projeto. Você mesmo confere o que foi entregue.</p>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <h3>Desenvolvimento personalizado</h3>
+        <p>Cada projeto é construído sob medida, conforme a necessidade e o objetivo real.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h3>Tecnologia e IA</h3>
+        <p>Uso de tecnologias modernas e inteligência artificial para agilizar e qualificar o desenvolvimento.</p>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Comunicação direta</h3>
+        <p>Você fala diretamente com quem desenvolve o projeto. Sem intermediários.</p>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Foco em projetos funcionais</h3>
+        <p>O objetivo é entregar projetos prontos, funcionando e publicados na internet.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CTA FINAL -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Tem uma ideia? Vamos <span class="highlight">transformar em projeto.</span></h2>
+      <p>Se você precisa de um site, produto digital, solução web ou projeto criativo, fale com a RyskDigital.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5551982303963?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="btn-hero">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Solicitar orçamento
+        </a>
+        <a href="#projetos" class="btn-hero-outline">Ver projetos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
 <section class="contact" id="contato">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info reveal">
         <p class="eyebrow">Contato</p>
         <div style="width:48px;height:3px;background:var(--accent);margin:20px 0;border-radius:2px;"></div>
-        <h2>Vamos criar algo <span class="highlight">extraordinário</span> juntos.</h2>
+        <h2>Vamos conversar sobre o <span class="highlight">seu projeto.</span></h2>
         <div class="contact-items">
           <div>
             <div class="contact-item-label">WhatsApp</div>
@@ -714,11 +782,12 @@
           <div class="form-group">
             <label for="servico">O que você precisa?</label>
             <select id="servico">
-              <option value="" disabled selected>Selecione um serviço</option>
-              <option value="site">Site Profissional</option>
-              <option value="instagram">Material para Instagram</option>
-              <option value="infoproduto">Infoproduto</option>
-              <option value="outro">Outro</option>
+              <option value="" disabled selected>Selecione o serviço</option>
+              <option value="Desenvolvimento Web">Desenvolvimento Web</option>
+              <option value="Produto Digital">Produto Digital</option>
+              <option value="Presença Digital e Conteúdo">Presença Digital e Conteúdo</option>
+              <option value="Produção Musical">Produção Musical</option>
+              <option value="Outro">Outro</option>
             </select>
           </div>
           <div class="form-group">
